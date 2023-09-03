@@ -82,7 +82,7 @@ function Step1({ nextStep }) {
           <input
             type="text"
             name="cep"
-            value={senderInfo.address.cep}
+            value={senderInfo.cep}
             onChange={handleInputChange}
             required
           />
@@ -92,7 +92,7 @@ function Step1({ nextStep }) {
           <input
             type="text"
             name="state"
-            value={senderInfo.address.state}
+            value={senderInfo.state}
             onChange={handleInputChange}
             required
           />
@@ -102,7 +102,7 @@ function Step1({ nextStep }) {
           <input
             type="text"
             name="city"
-            value={senderInfo.address.city}
+            value={senderInfo.city}
             onChange={handleInputChange}
             required
           />
@@ -112,7 +112,7 @@ function Step1({ nextStep }) {
           <input
             type="text"
             name="neighborhood"
-            value={senderInfo.address.neighborhood}
+            value={senderInfo.neighborhood}
             onChange={handleInputChange}
             required
           />
@@ -122,9 +122,28 @@ function Step1({ nextStep }) {
           <input
             type="text"
             name="street"
-            value={senderInfo.address.street}
+            value={senderInfo.street}
             onChange={handleInputChange}
             required
+          />
+        </label>
+        <label>
+        Número:
+          <input
+            type="text"
+            name="number"
+            value={senderInfo.number}
+            onChange={handleInputChange}
+            required
+          />
+        </label>
+        <label>
+        Complemento:
+          <input
+            type="text"
+            name="complement"
+            value={senderInfo.complement}
+            onChange={handleInputChange}
           />
         </label>
         {/* Adicione outros campos de entrada aqui */}

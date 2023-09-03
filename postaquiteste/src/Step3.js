@@ -56,6 +56,83 @@ function Step3({ nextStep, prevStep, senderInfo, receiverInfo }) {
             required
           />
         </label>
+        <label>
+          Largura (em cm):
+          <input
+            type="text"
+            name="width"
+            value={shippingInfo.width}
+            onChange={handleInputChange}
+            required
+          />
+        </label>
+        <label>
+          Comprimento (em cm):
+          <input
+            type="text"
+            name="length"
+            value={shippingInfo.length}
+            onChange={handleInputChange}
+            required
+          />
+        </label>
+        <switch>
+          Logística reversa:
+          <switch
+            name="reverse"
+            value={shippingInfo.reverse}
+            onChange={handleInputChange}
+            required
+          disabled />
+        </switch>
+        <switch>
+          Aviso de recebimento:
+          <switch
+            name="ar"
+            value={shippingInfo.ar}
+            onChange={handleInputChange}
+            required
+          disabled />
+        </switch>
+        <switch>
+          Próprias mãos:
+          <switch
+            name="own_hands"
+            value={shippingInfo.own_hands}
+            onChange={handleInputChange}
+            required
+          disabled />
+        </switch>
+        <label>
+          Valor da mercadoria:
+          <input
+            type="text"
+            name="amount"
+            value={shippingInfo.amount}
+            onChange={handleInputChange}
+            required
+          />
+        </label>
+        <label>
+          Quantidade de itens:
+          <input
+            type="text"
+            name="quantity"
+            value={shippingInfo.quantity}
+            onChange={handleInputChange}
+            required
+          />
+        </label>
+        <label>
+          Descrição:
+          <input
+            type="text"
+            name="description"
+            value={shippingInfo.description}
+            onChange={handleInputChange}
+            required
+          />
+        </label>
         {/* Adicione outros campos de entrada aqui */}
         <button type="button" onClick={prevStep}>
           Anterior

@@ -11,6 +11,9 @@ function App() {
   const [receiverInfo, setReceiverInfo] = useState({});
   const [shippingInfo, setShippingInfo] = useState({});
 
+  //passos
+  const steps = ['Remetente', 'Destinatário', 'Correspondência', 'Resultado', 'Código de Rastreio'];
+
   // Função para avançar para o próximo passo
   const nextStep = () => {
     setStep(step + 1);
@@ -54,6 +57,7 @@ function App() {
             shippingInfo={shippingInfo}
           />
         )}
+        
         {/* Adicione mais componentes para outros passos aqui */}
       </main>
     </div>
