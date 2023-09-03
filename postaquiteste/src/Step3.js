@@ -33,11 +33,11 @@ function Step3({ nextStep, prevStep, senderInfo, receiverInfo }) {
   };
 
   return (
-    <div>
+    <div className="step-container">
       <h2>Passo 3: Preenchimento das informações da correspondência</h2>
       <form>
-        <label>
-          Peso (em kg):
+        <div className="input-container">
+          <label>Peso (em kg):</label>
           <input
             type="text"
             name="weight"
@@ -45,9 +45,9 @@ function Step3({ nextStep, prevStep, senderInfo, receiverInfo }) {
             onChange={handleInputChange}
             required
           />
-        </label>
-        <label>
-          Altura (em cm):
+        </div>
+        <div className="input-container">
+          <label>Altura (em cm):</label>
           <input
             type="text"
             name="height"
@@ -55,9 +55,9 @@ function Step3({ nextStep, prevStep, senderInfo, receiverInfo }) {
             onChange={handleInputChange}
             required
           />
-        </label>
-        <label>
-          Largura (em cm):
+        </div>
+        <div className="input-container">
+          <label>Largura (em cm):</label>
           <input
             type="text"
             name="width"
@@ -65,9 +65,9 @@ function Step3({ nextStep, prevStep, senderInfo, receiverInfo }) {
             onChange={handleInputChange}
             required
           />
-        </label>
-        <label>
-          Comprimento (em cm):
+        </div>
+        <div className="input-container">
+          <label>Comprimento (em cm):</label>
           <input
             type="text"
             name="length"
@@ -75,36 +75,42 @@ function Step3({ nextStep, prevStep, senderInfo, receiverInfo }) {
             onChange={handleInputChange}
             required
           />
-        </label>
-        <switch>
-          Logística reversa:
-          <switch
-            name="reverse"
-            value={shippingInfo.reverse}
-            onChange={handleInputChange}
-            required
-          disabled />
-        </switch>
-        <switch>
-          Aviso de recebimento:
-          <switch
-            name="ar"
-            value={shippingInfo.ar}
-            onChange={handleInputChange}
-            required
-          disabled />
-        </switch>
-        <switch>
-          Próprias mãos:
-          <switch
-            name="own_hands"
-            value={shippingInfo.own_hands}
-            onChange={handleInputChange}
-            required
-          disabled />
-        </switch>
-        <label>
-          Valor da mercadoria:
+        </div>
+        <div className="checkbox-container">
+          <label>
+            Logística reversa:
+            <input
+              type="checkbox"
+              name="reverse"
+              checked={shippingInfo.reverse}
+              onChange={handleInputChange}
+            />
+          </label>
+        </div>
+        <div className="checkbox-container">
+          <label>
+            Aviso de recebimento:
+            <input
+              type="checkbox"
+              name="ar"
+              checked={shippingInfo.ar}
+              onChange={handleInputChange}
+            />
+          </label>
+        </div>
+        <div className="checkbox-container">
+          <label>
+            Próprias mãos:
+            <input
+              type="checkbox"
+              name="own_hands"
+              checked={shippingInfo.own_hands}
+              onChange={handleInputChange}
+            />
+          </label>
+        </div>
+        <div className="input-container">
+          <label>Valor da mercadoria:</label>
           <input
             type="text"
             name="amount"
@@ -112,9 +118,9 @@ function Step3({ nextStep, prevStep, senderInfo, receiverInfo }) {
             onChange={handleInputChange}
             required
           />
-        </label>
-        <label>
-          Quantidade de itens:
+        </div>
+        <div className="input-container">
+          <label>Quantidade de itens:</label>
           <input
             type="text"
             name="quantity"
@@ -122,9 +128,9 @@ function Step3({ nextStep, prevStep, senderInfo, receiverInfo }) {
             onChange={handleInputChange}
             required
           />
-        </label>
-        <label>
-          Descrição:
+        </div>
+        <div className="input-container">
+          <label>Descrição:</label>
           <input
             type="text"
             name="description"
@@ -132,7 +138,7 @@ function Step3({ nextStep, prevStep, senderInfo, receiverInfo }) {
             onChange={handleInputChange}
             required
           />
-        </label>
+        </div>
         {/* Adicione outros campos de entrada aqui */}
         <button type="button" onClick={prevStep}>
           Anterior
@@ -144,5 +150,4 @@ function Step3({ nextStep, prevStep, senderInfo, receiverInfo }) {
     </div>
   );
 }
-
 export default Step3;

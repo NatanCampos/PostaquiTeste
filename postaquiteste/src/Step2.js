@@ -35,11 +35,11 @@ function Step2({ nextStep, prevStep, senderInfo }) {
   };
 
   return (
-    <div>
+    <div className="step-container">
       <h2>Passo 2: Preenchimento das informações do destinatário</h2>
       <form>
-        <label>
-          Nome Completo:
+        <div className="input-container">
+          <label>Nome Completo:</label>
           <input
             type="text"
             name="fullname"
@@ -47,9 +47,9 @@ function Step2({ nextStep, prevStep, senderInfo }) {
             onChange={handleInputChange}
             required
           />
-        </label>
-        <label>
-          CPF:
+        </div>
+        <div className="input-container">
+          <label>CPF:</label>
           <input
             type="text"
             name="cpf"
@@ -57,9 +57,9 @@ function Step2({ nextStep, prevStep, senderInfo }) {
             onChange={handleInputChange}
             required
           />
-        </label>
-        <label>
-        Celular:
+        </div>
+        <div className="input-container">
+          <label>Celular:</label>
           <input
             type="text"
             name="phone"
@@ -67,9 +67,9 @@ function Step2({ nextStep, prevStep, senderInfo }) {
             onChange={handleInputChange}
             required
           />
-        </label>
-        <label>
-        Email:
+        </div>
+        <div className="input-container">
+          <label>Email:</label>
           <input
             type="text"
             name="email"
@@ -77,9 +77,9 @@ function Step2({ nextStep, prevStep, senderInfo }) {
             onChange={handleInputChange}
             required
           />
-        </label>
-        <label>
-        Cep:
+        </div>
+        <div className="input-container">
+          <label>CEP:</label>
           <input
             type="text"
             name="cep"
@@ -87,9 +87,9 @@ function Step2({ nextStep, prevStep, senderInfo }) {
             onChange={handleInputChange}
             required
           />
-        </label>
-        <label>
-        Estado:
+        </div>
+        <div className="input-container">
+          <label>Estado:</label>
           <input
             type="text"
             name="state"
@@ -97,9 +97,9 @@ function Step2({ nextStep, prevStep, senderInfo }) {
             onChange={handleInputChange}
             required
           />
-        </label>
-        <label>
-        Cidade:
+        </div>
+        <div className="input-container">
+          <label>Cidade:</label>
           <input
             type="text"
             name="city"
@@ -107,9 +107,9 @@ function Step2({ nextStep, prevStep, senderInfo }) {
             onChange={handleInputChange}
             required
           />
-        </label>
-        <label>
-        Bairro:
+        </div>
+        <div className="input-container">
+          <label>Bairro:</label>
           <input
             type="text"
             name="neighborhood"
@@ -117,9 +117,9 @@ function Step2({ nextStep, prevStep, senderInfo }) {
             onChange={handleInputChange}
             required
           />
-        </label>
-        <label>
-        Rua:
+        </div>
+        <div className="input-container">
+          <label>Rua:</label>
           <input
             type="text"
             name="street"
@@ -127,9 +127,9 @@ function Step2({ nextStep, prevStep, senderInfo }) {
             onChange={handleInputChange}
             required
           />
-        </label>
-        <label>
-        Número:
+        </div>
+        <div className="input-container">
+          <label>Número:</label>
           <input
             type="text"
             name="number"
@@ -137,9 +137,9 @@ function Step2({ nextStep, prevStep, senderInfo }) {
             onChange={handleInputChange}
             required
           />
-        </label>
-        <label>
-        Complemento:
+        </div>
+        <div className="input-container">
+          <label>Complemento:</label>
           <input
             type="text"
             name="complement"
@@ -147,7 +147,7 @@ function Step2({ nextStep, prevStep, senderInfo }) {
             onChange={handleInputChange}
             required
           />
-        </label>
+        </div>
         {/* Adicione outros campos de entrada aqui */}
         <button type="button" onClick={prevStep}>
           Anterior

@@ -1,44 +1,51 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Button, Typography } from '@mui/material';
+import axios from 'axios';
 
 function Step4({ nextStep, prevStep, senderInfo, receiverInfo, shippingInfo }) {
-  // Lógica para fazer a requisição para a API Postaqui e obter o código de rastreio
-  const handlePostToAPI = async () => {
-    try {
-      // Faça a requisição para a API com as informações do remetente, destinatário e envio
-      // Aguarde a resposta da API e obtenha o código de rastreio
-      const trackingCode = await fetch('https://f29faec4-6487-4b60-882f-383b4054cc32.mock.pstmn.io/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          sender: senderInfo,
-          receiver: receiverInfo,
-          package: shippingInfo,
-        }),
-      }).then((response) => response.json());
+  const [trackingCode, setTrackingCode] = useState('');
+  const [loading, setLoading] = useState(false);
 
-      // Exiba o código de rastreio para o usuário
-      alert(`Código de Rastreio: ${trackingCode.code}`);
+  useEffect(() => {
+    const calculateShipping = async () => {
+      try {
+        setLoading(true);
+    
+        const response = await axios.post(
+          'https://f29faec4-6487-4b60-882f-383b4054cc32.mock.pstmn.io/shipping_calculate',
+          {
+            sender: senderInfo,
+            receiver: receiverInfo,
+            package: shippingInfo,
+          }
+        );
+    
+        const calculatedData = response.data.shipment[0]; // Use o primeiro resultado (você pode ajustar isso conforme necessário)
+    
+        // Atualize o estado com o valor do frete
+        trackingCode = setTrackingCode(calculatedData.code);
+        setLoading(false);
+      } catch (error) {
+        // Lógica de tratamento de erro aqui
+        console.error('Erro ao calcular o frete', error);
+        setLoading(false);
+      }
+    };
 
-      // Avance para o próximo passo
-      nextStep();
-    } catch (error) {
-      // Lógica de tratamento de erro aqui
-      console.error(error);
-    }
-  };
+    calculateShipping();
+  }, [senderInfo, receiverInfo, shippingInfo]);
 
   return (
     <div>
-      <h2>Passo 4: Mostrar resultado do frete</h2>
-      {/* Exiba informações relevantes do envio e aguarde a resposta da API */}
-      <button type="button" onClick={prevStep}>
-        Anterior
-      </button>
-      <button type="button" onClick={handlePostToAPI}>
-        Fazer Postagem
-      </button>
+      <Typography variant="h6">
+        Código de Rastreio: {trackingCode}
+      </Typography>
+      <Button variant="contained" color="primary" onClick={prevStep}>
+        Voltar
+      </Button>
+      <Button variant="contained" color="primary" onClick={nextStep}>
+        Próximo
+      </Button>
     </div>
   );
 }
