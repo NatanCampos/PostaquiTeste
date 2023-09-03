@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import InfoPanel from './InfoPanel'; // Importe o InfoPanel
 
 function Step1({ nextStep }) {
     const [senderInfo, setSenderInfo] = useState({
@@ -28,6 +29,7 @@ function Step1({ nextStep }) {
 
   // Função para avançar para o próximo passo
   const handleNextStep = () => {
+    console.log(senderInfo); // Adicione esta linha para verificar o senderInfo
     // Valide os campos aqui, se necessário
     // Se os campos estiverem válidos, avance para o próximo passo
     nextStep();
@@ -146,6 +148,7 @@ function Step1({ nextStep }) {
             onChange={handleInputChange}
           />
         </div>
+ 
         <button type="button" onClick={handleNextStep}>
           Próximo
         </button>

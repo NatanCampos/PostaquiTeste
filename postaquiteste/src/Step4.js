@@ -23,14 +23,23 @@ function Step4({ nextStep, prevStep, senderInfo, receiverInfo, shippingInfo }) {
         const calculatedData = response.data.shipment[0]; // Use o primeiro resultado (você pode ajustar isso conforme necessário)
     
         // Atualize o estado com o valor do frete
-        trackingCode = setTrackingCode(calculatedData.code);
+        setTrackingCode(calculatedData.code);
         setLoading(false);
       } catch (error) {
         // Lógica de tratamento de erro aqui
-        console.error('Erro ao calcular o frete', error);
+        console.error('Erro ao calcular o frete', error.message);
         setLoading(false);
+
+        // Se o erro for devido a um limite de solicitações, espere por um tempo e faça a solicitação novamente
+        if (error.response && error.response.status === 429) {
+          // Espere por 5 segundos (você pode ajustar o tempo de espera conforme necessário)
+          setTimeout(() => {
+            calculateShipping();
+          }, 5000);
+        }
       }
     };
+
 
     calculateShipping();
   }, [senderInfo, receiverInfo, shippingInfo]);

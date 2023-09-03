@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-
+import InfoPanel from './InfoPanel'; // Importe o InfoPanel
+ 
 function Step2({ nextStep, prevStep, senderInfo }) {
   const [receiverInfo, setReceiverInfo] = useState({
     fullname: '',
@@ -29,6 +30,10 @@ function Step2({ nextStep, prevStep, senderInfo }) {
 
   // Função para avançar para o próximo passo
   const handleNextStep = () => {
+    console.log(senderInfo); // Adicione esta linha para verificar o senderInfo
+    senderInfo = { ...senderInfo, ...receiverInfo };
+    console.log(senderInfo); // Adicione esta linha também para verificar o senderInfo após a atualização
+
     // Valide os campos aqui, se necessário
     // Se os campos estiverem válidos, avance para o próximo passo
     nextStep();
@@ -156,6 +161,8 @@ function Step2({ nextStep, prevStep, senderInfo }) {
           Próximo
         </button>
       </form>
+      
+        <InfoPanel title="Informações do Remetente" data={senderInfo} />      
     </div>
   );
 }
