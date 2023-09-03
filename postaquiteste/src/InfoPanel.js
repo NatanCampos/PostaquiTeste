@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 function InfoPanel({ data, title }) {
   return (
     <div className="info-panel">

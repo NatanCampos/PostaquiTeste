@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import InfoPanel from './InfoPanel'; // Importe o InfoPanel
+import senderInfo from './Step1';
  
-function Step2({ nextStep, prevStep, senderInfo }) {
+function Step2({ nextStep, prevStep, senderInfo, setSenderInfo }) {
+  console.log(senderInfo); // Verifique o senderInfo recebido
+  
   const [receiverInfo, setReceiverInfo] = useState({
     fullname: '',
     cpf: '',
@@ -30,9 +33,13 @@ function Step2({ nextStep, prevStep, senderInfo }) {
 
   // Função para avançar para o próximo passo
   const handleNextStep = () => {
-    console.log(senderInfo); // Adicione esta linha para verificar o senderInfo
-    senderInfo = { ...senderInfo, ...receiverInfo };
-    console.log(senderInfo); // Adicione esta linha também para verificar o senderInfo após a atualização
+    console.log(senderInfo); // Verifique o senderInfo antes de atualizar
+
+    // Atualize o senderInfo com as informações do receiverInfo
+    const updatedSenderInfo = { ...senderInfo, ...receiverInfo };
+    setSenderInfo(updatedSenderInfo); // Use setSenderInfo para atualizar senderInfo
+
+    console.log(updatedSenderInfo); // Verifique o senderInfo após a atualização
 
     // Valide os campos aqui, se necessário
     // Se os campos estiverem válidos, avance para o próximo passo
@@ -162,7 +169,7 @@ function Step2({ nextStep, prevStep, senderInfo }) {
         </button>
       </form>
       
-        <InfoPanel title="Informações do Remetente" data={senderInfo} />      
+
     </div>
   );
 }

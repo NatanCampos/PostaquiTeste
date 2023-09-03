@@ -16,6 +16,7 @@ function App() {
   const [shippingPrice, setShippingPrice] = useState(null);
   const [trackingCode, setTrackingCode] = useState('');
   
+  
   const resetApp = () => {
     setStep(1);
     setSenderInfo({});
@@ -40,7 +41,14 @@ function App() {
         <h1>Mini Calculadora Postaqui</h1>
       </header>
       <main className="App-main">
-        {step === 1 && <Step1 nextStep={nextStep} senderInfo={senderInfo} setSenderInfo={setSenderInfo} />}
+      {step === 1 && (
+  <Step1
+    nextStep={nextStep}
+    senderInfo={senderInfo}
+    setSenderInfo={setSenderInfo} // Adicione esta linha
+  />
+)}
+
         {step === 2 && (
   <Step2
     nextStep={nextStep}

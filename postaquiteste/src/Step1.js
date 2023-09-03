@@ -30,6 +30,7 @@ function Step1({ nextStep }) {
   // Função para avançar para o próximo passo
   const handleNextStep = () => {
     console.log(senderInfo); // Adicione esta linha para verificar o senderInfo
+  
     // Valide os campos aqui, se necessário
     // Se os campos estiverem válidos, avance para o próximo passo
     nextStep();
